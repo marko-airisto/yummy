@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Yummy!</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> -->
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<br>
+		<div><span id="datetime"></span></div>
+		
+		<br><div class="col">
+		<h1>Yummy! -reseptit</h1>
+		</div>
+		
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+			</script>
+				
+			<br>
+			
+			<div class="col-md-2">
+			<div class="row">
+				
+				<form th:object="${recipe}" th:action="@{save}" action="#" method="post">
+		  	
+		  			<label for="name">Reseptin nimi</label>
+					<input type="text" id="name" th:field="*{name}" />
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="regimens">Ruokavalio</label>
+					<select id="regimens" th:field="*{regimen}" class="form-control">
+						<option th:each="regimen: ${regimens}" th:value="${regimen.rid}" th:text="${regimen.name}"></option>
+					</select>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="mains">Pääraaka-aine</label>
+					<select id="mains" th:field="*{main}" class="form-control">
+						<option th:each="main: ${mains}" th:value="${main.mid}" th:text="${main.name}"></option>
+					</select>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient">Tarvikkeet</label>
+					<textarea name="ingredient" rows="10" cols="30" th:utext="*{ingredient}"></textarea>
+					<!-- <input type="text" id="ingredient" th:field="*{ingredient}" /> -->
+					<span th:errors="*{ingredient}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+			
+					<label for="instruction">Valmistusohje</label>
+					<textarea name="instruction" rows="10" cols="30" th:field="*{instruction}"></textarea>
+					<!-- <input type="text" id="instruction" th:field="*{instruction}" /> -->
+					<span th:errors="*{instruction}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="createdby">Reseptin lisännyt</label>
+					<input type="text" id="createdby" th:field="*{createdby}" />
+					<span th:errors="*{createdby}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<br>
+			
+					<input type="submit" class="btn btn-sm btn-success" value="Tallenna resepti"></input>
+					<a href="/recipes" class="btn btn-sm btn-danger">Keskeytä</a>
+		
+				</form>
+				
+			</div>
+			</div>
+	
+	</div>
+
+</body>
+
+</html>

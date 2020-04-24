@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Yummy!</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> -->
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<br>
+		<div><span id="datetime"></span></div>
+		
+		<br><div class="col">
+		<h1>Yummy! -reseptit</h1>
+		</div>
+		
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+			</script>
+	
+			<br>
+			
+			<a href="/addrecipe" class="btn btn-sm btn-success">Lisää uusi resepti</a>
+			
+			<br><br>
+		
+				<table class="searchable sortable">
+				<thead>
+					<tr>
+						<th>Reseptin nimi</th>
+						<th>Ruokavalio</th>
+						<th>pääraaka-aine</th>
+						<th>Reseptin lisännyt</th>
+						<th>Näytä reseptin tiedot</th>
+					</tr>
+				</thead>
+				
+					<tr align="center" th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.name}">
+						<td th:text="${recipe.regimen.name}">
+						<td th:text="${recipe.main.name}">
+						<td th:text="${recipe.createdby}">
+						<td><a th:href="@{/showrecipe/{id}(id=${recipe.id})}" class="btn btn-xs btn-info">Avaa</a></td>
+					</tr>
+				</table>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	</div>
+
+</body>
+
+</html>
