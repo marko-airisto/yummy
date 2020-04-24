@@ -1,107 +1,121 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Yummy!</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+		<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> -->
+		<link rel="stylesheet" href="../../../../public/stylesheets/reset.css" />
+		<link rel="stylesheet" href="../../../../public/stylesheets/style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
 
-<head>
-	<title>Yummy!</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> -->
-</head>
+	<body>
+		<header>
+			<nav>
+				<div class="logo-section">
+					<img src="../../../../public/images/logo.png" />
+					<a href="">Yummy! -reseptit</a>
+				</div>
+			</nav>
+		</header>
+		<div class="container">
+			<br />
+			<div><span id="datetime"></span></div>
 
-<body>
+			<br /><br />
 
-	<div class="container">
-		
-		<br>
-		<div><span id="datetime"></span></div>
-		
-		<br><div class="col">
-		<h1>Yummy! -reseptit</h1>
+			<tr>
+				<th><b>Resepti</b></th>
+			</tr>
+
+			<br />
+
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.name}"></td>
+			</tr>
+
+			<br /><br />
+
+			<tr>
+				<th><b>Ruokavalio</b></th>
+			</tr>
+
+			<br />
+
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.regimen.name}"></td>
+			</tr>
+
+			<br /><br />
+
+			<tr>
+				<th><b>Pääraaka-aine</b></th>
+			</tr>
+
+			<br />
+
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.main.name}"></td>
+			</tr>
+
+			<br /><br />
+
+			<tr>
+				<th><b>Tarvikkeet</b></th>
+			</tr>
+
+			<br />
+
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.ingredient}"></td>
+			</tr>
+
+			<br /><br />
+
+			<tr>
+				<th><b>Valmistusohjeet</b></th>
+			</tr>
+
+			<br />
+
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.instruction}"></td>
+			</tr>
+
+			<br /><br />
+
+			<tr>
+				<th><b>Reseptin lisännyt</b></th>
+			</tr>
+
+			<br />
+
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.createdby}"></td>
+			</tr>
+
+			<br /><br /><br /><br /><br />
+
+			<a href="/recipes" class="btn btn-sm btn-primary"
+				>Takaisin reseptilistaukseen</a
+			>
 		</div>
-		
-			<script>
-				var dt = new Date();
-				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-			</script>
-				
-				<br><br>
-				
-					<tr>
-						<th><b>Resepti</b></th>
-					</tr>
-					
-					<br>
-					
-					<tr th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.name}">
-					</tr>
-					
-					<br><br>
-					
-					<tr>
-						<th><b>Ruokavalio</b></th>
-					</tr>
-					
-					<br>
-				
-					<tr th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.regimen.name}">
-					</tr>
-					
-					<br><br>
-					
-					<tr>
-						<th><b>Pääraaka-aine</b></th>
-					</tr>
-					
-					<br>
-				
-					<tr th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.main.name}">
-					</tr>
-					
-					<br><br>
-					
-					<tr>
-						<th><b>Tarvikkeet</b></th>
-					</tr>
-					
-					<br>
-				
-					<tr th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.ingredient}">
-					</tr>
-					
-					<br><br>
-					
-					<tr>
-						<th><b>Valmistusohjeet</b></th>
-					</tr>
-					
-					<br>
-				
-					<tr th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.instruction}">
-					</tr>
-					
-					<br><br>
-					
-					<tr>
-						<th><b>Reseptin lisännyt</b></th>
-					</tr>
-					
-					<br>
-				
-					<tr th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.createdby}">
-					</tr>
-		
-		<br><br><br><br><br>
-		
-		<a href="/recipes" class="btn btn-sm btn-primary">Takaisin reseptilistaukseen</a>
-
-	</div>
-
-</body>
-
+		<script>
+			var dt = new Date();
+			document.getElementById("datetime").innerHTML =
+				("0" + dt.getDate()).slice(-2) +
+				"." +
+				("0" + (dt.getMonth() + 1)).slice(-2) +
+				"." +
+				dt.getFullYear() +
+				" " +
+				("0" + dt.getHours()).slice(-2) +
+				":" +
+				("0" + dt.getMinutes()).slice(-2);
+		</script>
+	</body>
 </html>
