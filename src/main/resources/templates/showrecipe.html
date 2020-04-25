@@ -104,6 +104,7 @@
 				>Takaisin reseptilistaukseen</a
 			>
 		</div>
+<<<<<<< HEAD
 		<script>
 			var dt = new Date();
 			document.getElementById("datetime").innerHTML =
@@ -119,3 +120,188 @@
 		</script>
 	</body>
 </html>
+=======
+		
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+			</script>
+				
+				<br><br>
+				
+					<tr>
+						<th><b>Resepti</b></th>
+					</tr>
+					
+					<br>
+					
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.name}">
+					</tr>
+					
+					<br><br>
+					
+					<tr>
+						<th><b>Valmistusaika minuutteina</b></th>
+					</tr>
+					
+					<br>
+					
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.preparation}">
+					</tr>
+					
+					<br><br>
+					
+					<tr>
+						<th><b>Ruokavalio</b></th>
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.regimen.name}">
+					</tr>
+					
+					<br><br>
+					
+					<tr>
+						<th><b>Pääraaka-aine</b></th>
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.main.name}">
+					</tr>
+					
+					<br><br>
+					
+					<tr>
+						<th><b>Tarvikkeet</b></th>
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient01}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient02}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient03}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient04}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient05}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient06}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient07}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient08}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient09}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient10}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient11}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient12}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient13}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient14}">
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.ingredient15}">
+					</tr>
+					
+					<br><br>
+					
+					<tr>
+						<th><b>Valmistusohjeet</b></th>
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.instruction}">
+					</tr>
+					
+					<br><br>
+					
+					<tr>
+						<th><b>Reseptin lisännyt</b></th>
+					</tr>
+					
+					<br>
+				
+					<tr th:each = "recipe : ${recipes}">
+						<td th:text="${recipe.createdby}">
+					</tr>
+		
+		<br><br><br><br><br>
+		
+		<a href="/recipes" class="btn btn-sm btn-primary">Takaisin reseptilistaukseen</a>
+
+	</div>
+
+</body>
+
+</html>
+>>>>>>> 90c2e9178ac1b5ec0e51d8c43e5369141fb78925

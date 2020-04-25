@@ -40,6 +40,11 @@
 					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
 					<div style="clear: both; display: block; height: 10px;"></div>
 					
+					<label for="preparation">Valmistusaika minuutteina</label>
+					<input type="number" id="preparation" th:field="*{preparation}" />
+					<span th:errors="*{preparation}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
 					<label for="regimens">Ruokavalio</label>
 					<select id="regimens" th:field="*{regimen}" class="form-control">
 						<option th:each="regimen: ${regimens}" th:value="${regimen.rid}" th:text="${regimen.name}"></option>
@@ -52,10 +57,65 @@
 					</select>
 					<div style="clear: both; display: block; height: 10px;"></div>
 					
-					<label for="ingredient">Tarvikkeet</label>
-					<textarea name="ingredient" rows="10" cols="30" th:utext="*{ingredient}"></textarea>
-					<!-- <input type="text" id="ingredient" th:field="*{ingredient}" /> -->
-					<span th:errors="*{ingredient}" class="error"></span>
+					<label for="ingredient">Tarvikkeet</label><br>
+					<input type="text" id="ingredient01" th:field="*{ingredient01}" />
+					<span th:errors="*{ingredient01}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient02" th:field="*{ingredient02}" />
+					<span th:errors="*{ingredient02}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient03" th:field="*{ingredient03}" />
+					<span th:errors="*{ingredient03}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient04" th:field="*{ingredient04}" />
+					<span th:errors="*{ingredient04}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient05" th:field="*{ingredient05}" />
+					<span th:errors="*{ingredient05}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient06" th:field="*{ingredient06}" />
+					<span th:errors="*{ingredient06}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient07" th:field="*{ingredient07}" />
+					<span th:errors="*{ingredient07}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient08" th:field="*{ingredient08}" />
+					<span th:errors="*{ingredient08}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient09" th:field="*{ingredient09}" />
+					<span th:errors="*{ingredient09}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient10" th:field="*{ingredient10}" />
+					<span th:errors="*{ingredient10}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient11" th:field="*{ingredient11}" />
+					<span th:errors="*{ingredient11}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient12" th:field="*{ingredient12}" />
+					<span th:errors="*{ingredient12}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient13" th:field="*{ingredient13}" />
+					<span th:errors="*{ingredient13}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient14" th:field="*{ingredient14}" />
+					<span th:errors="*{ingredient14}" class="error"></span>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<input type="text" id="ingredient15" th:field="*{ingredient15}" />
+					<span th:errors="*{ingredient15}" class="error"></span>
 					<div style="clear: both; display: block; height: 10px;"></div>
 			
 					<label for="instruction">Valmistusohje</label>
