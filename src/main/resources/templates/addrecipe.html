@@ -6,23 +6,27 @@
 	<title>Yummy!</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 	<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> -->
+	<link rel="stylesheet" href="../../../../public/stylesheets/reset.css">
+	<link rel="stylesheet" href="../../../../public/stylesheets/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+	<header>
+		<nav>
+			<div class="logo-section">
+				<img src="../../../../public/images/logo.png" />
+				<a href="">Yummy! -reseptit</a>
+			</div>
+		</nav>
+	</header>
 	<div class="container">
 		
 		<br>
 		<div><span id="datetime"></span></div>
 		
-		<br><div class="col">
-		<h1>Yummy! -reseptit</h1>
-		</div>
-		
-			<script>
-				var dt = new Date();
-				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-			</script>
+
 				
 			<br>
 			
@@ -136,6 +140,10 @@
 			</div>
 	
 	</div>
+	<script>
+		var dt = new Date();
+		document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+	</script>
 
 </body>
 
