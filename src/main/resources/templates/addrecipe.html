@@ -115,7 +115,8 @@
 					<div style="clear: both; display: block; height: 10px;"></div>
 			
 					<label for="instruction">Valmistusohje</label>
-					<input type="text" id="instruction" th:field="*{instruction}" />
+					<textarea name="instruction" rows="10" cols="30" th:field="*{instruction}"></textarea>
+					<!-- <input type="text" id="instruction" th:field="*{instruction}" /> -->
 					<span th:errors="*{instruction}" class="error"></span>
 					<div style="clear: both; display: block; height: 10px;"></div>
 					
