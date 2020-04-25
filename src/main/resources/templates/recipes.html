@@ -34,6 +34,7 @@
 				<thead>
 					<tr>
 						<th>Reseptin nimi</th>
+						<th>Valmistusaika minuutteina</th>
 						<th>Ruokavalio</th>
 						<th>pääraaka-aine</th>
 						<th>Reseptin lisännyt</th>
@@ -43,6 +44,7 @@
 				
 					<tr align="center" th:each = "recipe : ${recipes}">
 						<td th:text="${recipe.name}">
+						<td th:text="${recipe.preparation}">
 						<td th:text="${recipe.regimen.name}">
 						<td th:text="${recipe.main.name}">
 						<td th:text="${recipe.createdby}">
