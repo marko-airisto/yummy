@@ -19,6 +19,11 @@ $coal: #141011;
 	text-decoration: none;
 }
 
+/* Functions */
+@function colWidth($cols) {
+	@return 100 / $cols;
+}
+
 /* Elements */
 
 * {
@@ -27,7 +32,7 @@ $coal: #141011;
 }
 
 .container {
-	margin: 2rem auto 0;
+	margin: 2rem auto 3rem;
 	width: 90%;
 
 	@media only screen and (min-width: 576px) {
@@ -114,4 +119,58 @@ nav {
 			text-decoration: none;
 		}
 	}
+}
+
+/***** 2. Recipes page *****/
+
+table {
+	width: 100%;
+}
+
+.table-recipes {
+	border-collapse: collapse;
+	th,
+	td {
+		width: colWidth(6) * 1%;
+		padding: 5px;
+	}
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+}
+
+/***** 3. Show Recipe page *****/
+
+/***** 4. Add Recipe page *****/
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	input,
+	select,
+	textarea {
+		margin: 0.5rem;
+		border-radius: 3px;
+		padding: 5px;
+		width: 80%;
+	}
+
+	@media only screen and (min-width: 772px) {
+		flex-direction: row;
+		label {
+			width: 25%;
+		}
+		input,
+		select,
+		textarea {
+			width: 50%;
+		}
+	}
+}
+
+.button-row {
+	display: flex;
+	justify-content: space-around;
 }
