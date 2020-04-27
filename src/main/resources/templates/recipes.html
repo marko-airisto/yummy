@@ -22,11 +22,10 @@
 				</div>
 			</nav>
 		</header>
+
 		<div class="container">
 			<div><span id="datetime"></span></div>
-
-			<br />
-			<a href="/addrecipe" class="btn btn-sm btn-success">Lisää uusi resepti</a>
+			<a href="/addrecipe" class="button-okay">Lisää uusi resepti</a>
 
 			<table class="searchable sortable">
 				<thead>
@@ -39,50 +38,24 @@
 						<th>Näytä reseptin tiedot</th>
 					</tr>
 				</thead>
-				
-					<tr align="center" th:each = "recipe : ${recipes}">
-						<td th:text="${recipe.name}">
-						<td th:text="${recipe.preparation}">
-						<td th:text="${recipe.regimen.name}">
-						<td th:text="${recipe.main.name}">
-						<td th:text="${recipe.createdby}">
-						<td><a th:href="@{/showrecipe/{id}(id=${recipe.id})}" class="btn btn-xs btn-info">Avaa</a></td>
-					</tr>
-				</table>
-		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 
 				<tr align="center" th:each="recipe : ${recipes}">
 					<td th:text="${recipe.name}"></td>
+					<td th:text="${recipe.preparation}"></td>
 					<td th:text="${recipe.regimen.name}"></td>
 					<td th:text="${recipe.main.name}"></td>
 					<td th:text="${recipe.createdby}"></td>
 					<td>
 						<a
 							th:href="@{/showrecipe/{id}(id=${recipe.id})}"
-							class="btn btn-xs btn-info"
+							class="button-inline"
 							>Avaa</a
 						>
 					</td>
 				</tr>
 			</table>
 		</div>
-		<footer>
-			<div>
-				Logo made by
-				<a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
-					>Good Ware</a
-				>
-				from
-				<a href="https://www.flaticon.com/" title="Flaticon"
-					>www.flaticon.com</a
-				>
-			</div>
-		</footer>
+		<footer></footer>
 		<script>
 			var dt = new Date();
 			document.getElementById("datetime").innerHTML =

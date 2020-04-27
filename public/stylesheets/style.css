@@ -1,4 +1,7 @@
 /***** 0. General *****/
+/* Colors */
+/*  Mixins */
+/* Elements */
 * {
   color: #333;
   font-family: "Lato", sans-serif;
@@ -13,6 +16,81 @@
     width: 75%;
     max-width: 1200px;
   }
+}
+
+.button-okay {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #215a00;
+}
+.button-okay:hover {
+  border: 2px solid #215a00;
+  background-color: #fff;
+  color: #215a00;
+  transition: 0.4s all ease-in-out;
+}
+
+.button-alert {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #ff5345;
+}
+.button-alert:hover {
+  border: 2px solid #ff5345;
+  background-color: #fff;
+  color: #ff5345;
+  transition: 0.4s all ease-in-out;
+}
+
+.button-neutral {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #141011;
+}
+.button-neutral:hover {
+  border: 2px solid #141011;
+  background-color: #fff;
+  color: #141011;
+  transition: 0.4s all ease-in-out;
+}
+
+.button-inline {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #ffb55a;
+  margin: 5px;
+  padding: 5px 10px;
+}
+.button-inline:hover {
+  border: 2px solid #ffb55a;
+  background-color: #fff;
+  color: #ffb55a;
+  transition: 0.4s all ease-in-out;
+}
+
+.font-default {
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 /***** 1. Navigation *****/
