@@ -1,18 +1,102 @@
 /***** 0. General *****/
+
+/* Colors */
+$watermelon: #ff5345;
+$orange: #ffb55a;
+$peach: #fff6c2;
+$leaf: #215a00;
+$coal: #141011;
 // https://colorpalettes.net/color-palette-3952/
+
+/*  Mixins */
+@mixin button {
+	display: inline-block;
+	margin: 20px 0;
+	padding: 10px;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Functions */
+@function colWidth($cols) {
+	@return 100 / $cols;
+}
+
+/* Elements */
+
 * {
 	color: #333;
 	font-family: "Lato", sans-serif;
 }
 
+body {
+	min-height: 100vh;
+	position: relative;
+}
+
 .container {
-	margin: 2rem auto 0;
+	padding-top: 3rem;
+	padding-bottom: 5rem;
+	margin: 0 auto;
 	width: 90%;
 
 	@media only screen and (min-width: 576px) {
 		width: 75%;
 		max-width: 1200px;
 	}
+}
+
+.button-okay {
+	@include button;
+	background-color: $leaf;
+	&:hover {
+		border: 2px solid $leaf;
+		background-color: #fff;
+		color: $leaf;
+		transition: 0.4s all ease-in-out;
+	}
+}
+
+.button-alert {
+	@include button;
+	background-color: $watermelon;
+	&:hover {
+		border: 2px solid $watermelon;
+		background-color: #fff;
+		color: $watermelon;
+		transition: 0.4s all ease-in-out;
+	}
+}
+
+.button-neutral {
+	@include button;
+	background-color: $coal;
+	&:hover {
+		border: 2px solid $coal;
+		background-color: #fff;
+		color: $coal;
+		transition: 0.4s all ease-in-out;
+	}
+}
+
+.button-inline {
+	@include button;
+	background-color: $orange;
+	margin: 5px;
+	padding: 5px 10px;
+	&:hover {
+		border: 2px solid $orange;
+		background-color: #fff;
+		color: $orange;
+		transition: 0.4s all ease-in-out;
+	}
+}
+
+.font-default {
+	font-size: 1rem;
+	font-family: inherit;
 }
 
 /***** 1. Navigation *****/
@@ -41,5 +125,80 @@ nav {
 			color: #fff;
 			text-decoration: none;
 		}
+	}
+}
+
+/***** 2. Recipes page *****/
+
+table {
+	width: 100%;
+}
+
+.table-recipes {
+	border-collapse: collapse;
+	th,
+	td {
+		width: colWidth(6) * 1%;
+		padding: 5px;
+	}
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+}
+
+/***** 3. Show Recipe page *****/
+
+/***** 4. Add Recipe page *****/
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	input,
+	select,
+	textarea {
+		margin: 0.5rem;
+		border-radius: 3px;
+		padding: 5px;
+		width: 80%;
+	}
+
+	@media only screen and (min-width: 772px) {
+		flex-direction: row;
+		label {
+			width: 25%;
+		}
+		input,
+		select,
+		textarea {
+			width: 50%;
+		}
+	}
+}
+
+.button-row {
+	display: flex;
+	justify-content: space-around;
+}
+
+/***** 5. Footer *****/
+
+footer {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 3rem;
+	background-color: $coal;
+	font-size: 0.8rem;
+	p {
+		color: #fff;
+	}
+	a {
+		color: $watermelon;
+		text-decoration: none;
 	}
 }
