@@ -11,6 +11,11 @@
 			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
 			rel="stylesheet"
 		/>
+			<!-- Font Awesome -->
+			<script
+			src="https://kit.fontawesome.com/65ac835d05.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 
 	<body>
@@ -24,7 +29,7 @@
 		</header>
 		<div><span id="datetime"></span></div>
 		<div class="container">
-			<table>
+			<!-- <table class="show-recipe">
 				<tr>
 					<th><b>Resepti</b></th>
 				</tr>
@@ -136,11 +141,126 @@
 				<tr th:each="recipe : ${recipes}">
 					<td th:text="${recipe.createdby}"></td>
 				</tr>
-			</table>
+			</table> -->
+			<div class="show-recipe">
+				<!-- <div>
+					<p>Resepti</p>
+				</div> -->
+				<div class="header">
+					<div th:each="recipe : ${recipes}">
+						<h2 th:text="${recipe.name}"></h2>
+					</div>
+				</div>
+	
+				<div class="side">
+
+	
+					<div class="side-entry" th:each="recipe : ${recipes}">
+						<h3><i class="far fa-clock"></i></h3>
+						<p th:text="${recipe.preparation}"></p>
+					</div>
+
+	
+					<div class="side-entry" th:each="recipe : ${recipes}">
+						<h3>Ruokavalio</h3>
+						<p th:text="${recipe.regimen.name}"></p>
+					</div>
+	
+	
+					<div class="side-entry" th:each="recipe : ${recipes}">
+						<h3>Pääraaka-aine</h3>
+						<p th:text="${recipe.main.name}"></p>
+					</div>
+					<div>
+						<h3>Ainesosat</h3>
+						<div>
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient01}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient02}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient03}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient04}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient05}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient06}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient07}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient08}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient09}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient10}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient11}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient12}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient13}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient14}"></p>
+							</div>
+			
+							<div th:each="recipe : ${recipes}">
+								<p th:text="${recipe.ingredient15}"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="main">
+					<div>
+						<h3>Valmistusohjeet</h3>
+					</div>
+	
+					<div th:each="recipe : ${recipes}">
+						<p th:text="${recipe.insdivuction}"></p>
+					</div>
+	
+					<div>
+						<h3>Reseptin lisännyt</th>
+					</div>
+	
+					<div th:each="recipe : ${recipes}">
+						<p th:text="${recipe.createdby}"></p>
+					</div>
+				</div>
+				
+			</div>
 			<a href="/recipes" class="button-neutral">Takaisin reseptilistaukseen</a>
 		</div>
 		<footer>
 			<div>
+				<p>@ 2020 Marko Airisto & Ulla Taponen</p>
 				<p>
 					Logo made by
 					<a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"

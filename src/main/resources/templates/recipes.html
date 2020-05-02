@@ -24,6 +24,56 @@
 		</header>
 		<div><span id="datetime"></span></div>
 		<div class="container">
+			<div class="search-container">
+				<form class="search" method="POST">
+					<div class="form-field">
+						<label for="search">Hae reseptiä: </label>
+						<input name="search" type="text" />
+					</div>
+
+					<div id="advanced" style="display: none;">
+						<div class="form-field">
+							<label for="regimens">Ruokavalio</label>
+							<select id="regimens" th:field="*{regimen}" class="form-control">
+								<option
+									th:each="regimen: ${regimens}"
+									th:value="${regimen.rid}"
+									th:text="${regimen.name}"
+								></option>
+							</select>
+						</div>
+						<div class="form-field">
+							<label for="mains">Pääraaka-aine</label>
+							<select id="mains" th:field="*{main}" class="form-control">
+								<option
+									th:each="main: ${mains}"
+									th:value="${main.mid}"
+									th:text="${main.name}"
+								></option>
+							</select>
+						</div>
+						<div class="form-field">
+							<label for="duration">Maksimikesto (minuutteina)</label>
+							<input
+								type="range"
+								id="duration"
+								name="duration"
+								min="0"
+								max="250"
+							/>
+						</div>
+					</div>
+					<!-- <div class="search-buttons"> -->
+					<a href="#" onclick="advancedSearch()"> Tarkennettu haku </a>
+					<input
+						type="submit"
+						class="button-neutral font-default"
+						value="Hae"
+					/>
+					<!-- </div> -->
+				</form>
+			</div>
+
 			<a href="/addrecipe" class="button-okay">Lisää uusi resepti</a>
 
 			<table class="table-recipes">
@@ -56,6 +106,7 @@
 		</div>
 		<footer>
 			<div>
+				<p>@ 2020 Marko Airisto & Ulla Taponen</p>
 				<p>
 					Logo made by
 					<a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
@@ -80,6 +131,16 @@
 				("0" + dt.getHours()).slice(-2) +
 				":" +
 				("0" + dt.getMinutes()).slice(-2);
+		</script>
+		<script>
+			function advancedSearch() {
+				let div = document.getElementById("advanced");
+				if (div.style.display === "none") {
+					div.style.display = "block";
+				} else {
+					div.style.display = "none";
+				}
+			}
 		</script>
 	</body>
 </html>
