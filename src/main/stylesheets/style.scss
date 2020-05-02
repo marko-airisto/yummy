@@ -23,6 +23,7 @@ $xl: 1200px;
 	border-radius: 10px;
 	color: #fff;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 /* Functions */
@@ -94,6 +95,18 @@ body {
 	}
 }
 
+// .button-invert {
+// 	@include button;
+// 	background-color: #fff;
+// 	color: $coal;
+// 	&:hover {
+// 		border: 2px solid #fff;
+// 		background-color: $coal;
+// 		color: #fff;
+// 		transition: 0.4s all ease-in-out;
+// 	}
+// }
+
 .button-inline {
 	@include button;
 	background-color: $orange;
@@ -142,6 +155,23 @@ nav {
 }
 
 /***** 2. Recipes page *****/
+
+.search-container {
+	background-color: #efefef;
+	padding: 2rem;
+}
+.search {
+	input {
+		border-radius: 3px;
+		padding: 5px;
+		margin-left: 0.5rem;
+	}
+}
+
+// .search-buttons {
+// 	display: flex;
+// 	justify-items: space-between;
+// }
 
 table {
 	width: 100%;

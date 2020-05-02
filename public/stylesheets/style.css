@@ -41,6 +41,7 @@ body {
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
   background-color: #215a00;
 }
 .button-okay:hover {
@@ -58,6 +59,7 @@ body {
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
   background-color: #ff5345;
 }
 .button-alert:hover {
@@ -75,12 +77,32 @@ body {
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
   background-color: #141011;
 }
 .button-neutral:hover {
   border: 2px solid #141011;
   background-color: #fff;
   color: #141011;
+  transition: 0.4s all ease-in-out;
+}
+
+.button-invert {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: #141011;
+}
+.button-invert:hover {
+  border: 2px solid #fff;
+  background-color: #141011;
+  color: #fff;
   transition: 0.4s all ease-in-out;
 }
 
@@ -92,6 +114,7 @@ body {
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
   background-color: #ffb55a;
   margin: 5px;
   padding: 5px 10px;
@@ -135,6 +158,17 @@ nav .logo-section a {
 }
 
 /***** 2. Recipes page *****/
+.search-container {
+  background-color: #efefef;
+  padding: 2rem;
+}
+
+.search input {
+  border-radius: 3px;
+  padding: 5px;
+  margin-left: 0.5rem;
+}
+
 table {
   width: 100%;
 }
