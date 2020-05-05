@@ -4,20 +4,18 @@
 	<head>
 		<title>Yummy!</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-		<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> -->
-		<link rel="stylesheet" href="../../../../public/stylesheets/reset.css" />
-		<link rel="stylesheet" href="../../../../public/stylesheets/style.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
-			rel="stylesheet"
-		/>
+		<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
+		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+		<!-- <link rel="stylesheet" href="../../../../public/stylesheets/reset.css" /> -->
+		<!-- <link rel="stylesheet" href="../../../../public/stylesheets/style.css" /> -->
+		<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap" rel="stylesheet"/>
 	</head>
 
 	<body>
 		<header>
 			<nav>
 				<div class="logo-section">
-					<img src="../../../../public/images/logo.png" />
+					<img src="/images/logo.png" />
 					<a href="">Yummy! -reseptit</a>
 				</div>
 			</nav>
@@ -31,7 +29,7 @@
 						<input name="search" type="text" />
 					</div>
 
-					<div id="advanced" style="display: none;">
+					<!-- <div id="advanced" style="display: none;">
 						<div class="form-field">
 							<label for="regimens">Ruokavalio</label>
 							<select id="regimens" th:field="*{regimen}" class="form-control">
@@ -95,11 +93,7 @@
 					<td th:text="${recipe.main.name}"></td>
 					<td th:text="${recipe.createdby}"></td>
 					<td>
-						<a
-							th:href="@{/showrecipe/{id}(id=${recipe.id})}"
-							class="button-inline"
-							>Avaa</a
-						>
+						<a th:href="@{/showrecipe/{id}(id=${recipe.id})}" class="button-inline">Avaa</a>
 					</td>
 				</tr>
 			</table>
