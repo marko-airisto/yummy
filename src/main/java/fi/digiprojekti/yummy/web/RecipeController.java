@@ -33,6 +33,14 @@ public class RecipeController {
 		return "recipes";
 	}
 	
+	@RequestMapping(value = "/recipes/{id}", method = RequestMethod.GET)
+	public String searchRecipeShow(@PathVariable("id") Long Id, Model model) {
+		model.addAttribute("recipes", recipeRepository.findById(Id).get());
+		model.addAttribute("regimens", regimenRepository.findAll());
+		model.addAttribute("mains", mainRepository.findAll());
+		return "showrecipe";
+	}
+	
 	@RequestMapping(value = "/showrecipe/{id}", method = RequestMethod.GET)
 	public String recipeShow(@PathVariable("id") Long Id, Model model) {
 		model.addAttribute("recipes", recipeRepository.findById(Id).get());
