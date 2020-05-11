@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.digiprojekti.yummy.domain.MainRepository;
-import fi.digiprojekti.yummy.domain.Recipe;
 import fi.digiprojekti.yummy.domain.RecipeRepository;
 import fi.digiprojekti.yummy.domain.RegimenRepository;
-/* import fi.digiprojekti.yummy.service.RecipeService; */
+import fi.digiprojekti.yummy.domain.Recipe;
 
 @Controller
 public class RecipeController {
@@ -28,15 +27,8 @@ public class RecipeController {
 	@Autowired
 	private MainRepository mainRepository;
 	
-	/* @Autowired
-	private RecipeService recipeService; */
-	
 	@RequestMapping(value = "/recipes")
-	public String recipeList(Model model, String keyword) {
-		/* if(keyword != null) {
-			model.addAttribute("recipes", recipeService.findByKeyword(keyword));
-		}
-		else { */
+	public String recipeList(Model model) {
 		model.addAttribute("recipes", recipeRepository.findAll());
 		return "recipes";
 	}
