@@ -21,36 +21,80 @@
 				<div class="logo-section">
 					<img src="/images/logo.png" />
 					<a href="">Yummy! -reseptit</a>
+					<form th:action="@{/logout}" method="post" class="button-signout">
+						<input type="submit" value="Sign Out" class="" />
+					</form>
 				</div>
 			</nav>
 		</header>
 		<div><span id="datetime"></span></div>
 
 		<div class="container">
-			<br />
-			<div class="col">
-				<h1>Tervetuloa herkuttelemaan Yummy!:n parissa!</h1>
-			</div>
+			<h1>Tervetuloa herkuttelemaan Yummy!:n parissa!</h1>
 
-			<div class="col">
-				<h4 th:inline="text">
-					Tervetuloa, [[${#httpServletRequest.remoteUser}]]!
-				</h4>
+			<p class="welcome-user" th:inline="text">
+				Tervetuloa, [[${#httpServletRequest.remoteUser}]]!
+			</p>
 
-				<div style="padding: 20px 0;">
-					<form th:action="@{/logout}" method="post">
-						<input
-							type="submit"
-							value="Sign Out"
-							class="btn btn-sm btn-warning"
-						/>
-					</form>
+			<div class="card-grid">
+				<div class="product-card">
+					<img
+						src="https://source.unsplash.com/300x300/?pasta"
+						alt="Light roast"
+						class="product-img"
+					/>
+					<h4>Reseptit</h4>
+					<p>
+						Tutustu sivuston resepteihin
+					</p>
+					<p>
+						<button class="button-card">
+							<a class="button-link" href="/recipes">Mene reseptilistaukseen</a>
+						</button>
+					</p>
+				</div>
+				<div class="product-card">
+					<img
+						src="https://source.unsplash.com/300x300/?food"
+						alt="Medium roast"
+						class="product-img"
+					/>
+					<h4>Infoa Yummy!stä</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde earum
+						totam commodi ullam sunt vitae!
+					</p>
+					<p><button class="button-card">Lue lisää</button></p>
+				</div>
+				<div class="product-card">
+					<img
+						src="https://source.unsplash.com/300x300/?kitchen"
+						alt="Dark roast"
+						class="product-img"
+					/>
+					<h4>Vinkkejä</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+						obcaecati doloremque neque architecto maxime. Error.
+					</p>
+					<p><button class="button-card">Lue lisää</button></p>
+				</div>
+				<div class="product-card">
+					<img
+						src="https://source.unsplash.com/300x300/?vegetables"
+						alt="Caffein free"
+						class="product-img"
+					/>
+					<h4>Muuta tekstiä</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+						quos, quae perspiciatis numquam distinctio rerum.
+					</p>
+					<p><button class="button-card">Lue lisää</button></p>
 				</div>
 			</div>
 
-			<br />
-
-			<div class="panel panel-default">
+			<!-- <div class="panel panel-default">
 				<div class="panel-heading">Yummy! info</div>
 
 				<div class="panel-body" style="padding-left: 5px;">
@@ -60,18 +104,26 @@
 
 					<p>Muuta tekstiä?</p>
 				</div>
-			</div>
-
-			<br />
+			</div> -->
 
 			<!-- <a href="/add" class="btn btn-sm btn-success" sec:authorize="hasAuthority('ADMIN')">Lisää uusi resepti</a>  -->
-			<a href="/recipes" class="btn btn-sm btn-primary">Resepteihin</a>
-
-			<br />
-			<br />
-			<br />
-			<br />
+			<!-- <a href="/recipes" class="btn btn-sm btn-primary">Resepteihin</a> -->
 		</div>
+		<footer>
+			<div>
+				<p>@ 2020 Marko Airisto & Ulla Taponen</p>
+				<p>
+					Logo made by
+					<a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
+						>Good Ware</a
+					>
+					from
+					<a href="https://www.flaticon.com/" title="Flaticon"
+						>www.flaticon.com</a
+					>
+				</p>
+			</div>
+		</footer>
 		<script>
 			var dt = new Date();
 			document.getElementById("datetime").innerHTML =

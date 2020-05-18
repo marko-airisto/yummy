@@ -44,7 +44,11 @@
 							th:field="*{username}"
 							class="form-control"
 						/>
-						<span class="form-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+						<span
+							class="form-error"
+							th:if="${#fields.hasErrors('username')}"
+							th:errors="*{username}"
+						>
 							Username Error
 						</span>
 					</div>
@@ -77,7 +81,11 @@
 							th:field="*{password}"
 							class="form-control"
 						/>
-						<span class="form-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+						<span
+							class="form-error"
+							th:if="${#fields.hasErrors('password')}"
+							th:errors="*{password}"
+						>
 							Password Error
 						</span>
 					</div>
@@ -90,7 +98,8 @@
 							th:field="*{passwordCheck}"
 							class="form-control"
 						/>
-						<span class="form-error"
+						<span
+							class="form-error"
 							th:if="${#fields.hasErrors('passwordCheck')}"
 							th:errors="*{passwordCheck}"
 						>
@@ -118,6 +127,21 @@
 				</form>
 			</div>
 		</div>
+		<footer>
+			<div>
+				<p>@ 2020 Marko Airisto & Ulla Taponen</p>
+				<p>
+					Logo made by
+					<a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
+						>Good Ware</a
+					>
+					from
+					<a href="https://www.flaticon.com/" title="Flaticon"
+						>www.flaticon.com</a
+					>
+				</p>
+			</div>
+		</footer>
 		<script>
 			var dt = new Date();
 			document.getElementById("datetime").innerHTML =
