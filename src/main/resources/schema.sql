@@ -1,6 +1,20 @@
+DROP TABLE user;
 DROP TABLE recipe;
 DROP TABLE regimen;
 DROP TABLE main;
+
+CREATE TABLE user (
+id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL,
+firstname VARCHAR(50) NOT NULL,
+lastname VARCHAR(50) NOT NULL,
+password VARCHAR(250) NOT NULL,
+role VARCHAR(10) NOT NULL)
+ENGINE=InnoDB;
+
+INSERT INTO user (username, firstname, lastname, password, role) 
+VALUES ('user', 'User', 'Resu', '$2a$10$zVAZ.qr1dVHN9PxuK/2NRuQuT.d5saHD7MACHFkLlr9ahO7tEcUoS', 'USER'),
+('admin', 'Admin', 'Nimda', '$2a$10$vxOPLon4Coz0Hh9udbzVH.NE/dVCUw4mUKOnlf0/7kX2yMg8uzY9S', 'ADMIN');
 
 CREATE TABLE recipe (
 id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -54,7 +68,9 @@ INSERT INTO main (name) VALUES
 ('Hedelmät ja marjat'),
 ('Kala'),
 ('Kana'),
+('Kasvikset'),
 ('Liha'),
+('Maitotuotteet'),
 ('Riista'),
 ('Siipikarja'),
 ('Tofu');

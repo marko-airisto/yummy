@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Yummy! Sisäänkirjautuminen</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<br>
+		<div align="right"><span id="datetime"></span></div>
+
+		<br><div class="col">
+		<h1>Yummy!</h1>
+		</div>
+		
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+			</script>
+		
+			<div>
+		
+				<div class="alert alert-danger" th:if="${param.error}"> Väärä käyttäjätunnus ja/tai salasana.</div>
+				
+				<div class="alert alert-success" th:if="${param.logout}">Uloskirjautuminen onnistui.</div>
+
+					<form th:action="@{/login}" method="post">
+						<div><label> Käyttäjätunnus: <input type="text" name="username" class="form-control"/> </label></div>
+						<div><label> Salasana: <input type="password" name="password" class="form-control"/> </label></div>
+						<br>
+						<div><input type="submit" value="Kirjaudu sisään" class="btn btn-success"/></div>
+					</form>
+					
+					<br>
+					
+				<a th:href="@{/signup}" class="btn btn-primary">Uusi käyttäjä?</a>
+
+			</div>
+			
+       </div>
+
+</body>
+
+</html>

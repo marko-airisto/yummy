@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<head>
 		<title>Yummy!</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
@@ -21,6 +21,13 @@
 			</nav>
 		</header>
 		<div><span id="datetime"></span></div>
+		
+		<div style="padding:20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-sm btn-warning" sec:authorize="isAuthenticated()"/>
+			</form>
+		</div>
+		
 		<div class="container">
 			<div class="search-container">
 				<form class="search" method="POST">

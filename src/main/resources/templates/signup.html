@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Yummy! Käyttäjätunnuksen luonti</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<br>
+		<div align="right"><span id="datetime"></span></div>
+
+		<br><div class="col">
+		<h1>Luo Yummy!-käyttäjätunnus</h1>
+		</div>
+		
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+			</script>
+	
+     		<div>
+		
+				<form th:object="${registernewuser}" th:action="@{/saveuser}" action="#" method="post">
+					<div><label>Käyttäjätunnus:<input type="text" th:field="*{username}" class="form-control"/></label>
+					<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+					</div>
+					
+					<div><label>Etunimi:<input type="text" th:field="*{firstname}" class="form-control"/></label>
+					</div>
+					
+					<div><label>Sukunimi:<input type="text" th:field="*{lastname}" class="form-control"/></label>
+					</div>
+				
+					<div><label>Anna salasana:<input type="password" th:field="*{password}" class="form-control"/></label>
+					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+					</div>
+				
+					<div>
+					<label>Anna salasana uudelleen: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+					<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+					</div>
+					
+					<div id="list" style="clear: both; display: block; margin-top: 20px;">
+					<label>Käyttäjärooli: </label>
+					<select th:field="*{role}">
+    					<option th:value="'user'" th:text="User"></option>
+    					<option th:value="'admin'" th:text="Admin"></option>
+					</select>
+					</div>
+					
+					<br>
+			
+					<input type="submit" class="btn btn-primary" value="Luo käyttäjätunnus"></input>
+					<a href="/login" class="btn btn-danger">Keskeytä uuden käyttäjätunnuksen luominen</a>		
+				</form>
+				
+			</div>
+
+	</div>
+
+</body>
+
+</html>
