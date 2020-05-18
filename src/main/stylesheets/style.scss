@@ -45,7 +45,7 @@ body {
 
 .container {
 	padding-top: 3rem;
-	padding-bottom: 8rem;
+	padding-bottom: 10rem;
 	margin: 0 auto;
 	width: 90%;
 }
@@ -168,10 +168,11 @@ nav {
 	}
 }
 
-// .search-buttons {
-// 	display: flex;
-// 	justify-items: space-between;
-// }
+.search-buttons {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
 
 table {
 	width: 100%;
