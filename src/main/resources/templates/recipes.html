@@ -8,7 +8,10 @@
 		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
 		<!-- <link rel="stylesheet" href="../../../../public/stylesheets/reset.css" /> -->
 		<!-- <link rel="stylesheet" href="../../../../public/stylesheets/style.css" /> -->
-		<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap" rel="stylesheet"/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 
 	<body>
@@ -60,15 +63,15 @@
 								max="250"
 							/>
 						</div>
+					</div> -->
+					<div class="search-buttons">
+						<a href="#" onclick="advancedSearch()"> Tarkennettu haku </a>
+						<input
+							type="submit"
+							class="button-neutral font-default"
+							value="Hae"
+						/>
 					</div>
-					<!-- <div class="search-buttons"> -->
-					<a href="#" onclick="advancedSearch()"> Tarkennettu haku </a>
-					<input
-						type="submit"
-						class="button-neutral font-default"
-						value="Hae"
-					/>
-					<!-- </div> -->
 				</form>
 			</div>
 
@@ -93,7 +96,11 @@
 					<td th:text="${recipe.main.name}"></td>
 					<td th:text="${recipe.createdby}"></td>
 					<td>
-						<a th:href="@{/showrecipe/{id}(id=${recipe.id})}" class="button-inline">Avaa</a>
+						<a
+							th:href="@{/showrecipe/{id}(id=${recipe.id})}"
+							class="button-inline"
+							>Avaa</a
+						>
 					</td>
 				</tr>
 			</table>
