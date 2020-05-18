@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
-<head>
-	<title>Yummy! Käyttäjätunnuksen luonti</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
-	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
-	<link
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+	<head>
+		<title>Yummy! Käyttäjätunnuksen luonti</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+		<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
+		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+		<link
 			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
 			rel="stylesheet"
 		/>
-</head>
+	</head>
 
-<body>
-
-	
+	<body>
 		<header>
 			<nav>
 				<div class="logo-section">
@@ -24,55 +24,112 @@
 				</div>
 			</nav>
 		</header>
-		<br>
-		<div align="right"><span id="datetime"></span></div>
+		<div><span id="datetime"></span></div>
 		<div class="container">
-	<div class="col">
-		<h1>Luo Yummy!-käyttäjätunnus</h1>
-		</div>
-		 		<div>
-		
-				<form th:object="${registernewuser}" th:action="@{/saveuser}" action="#" method="post">
-					<div><label>Käyttäjätunnus:<input type="text" th:field="*{username}" class="form-control"/></label>
-					<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
-					</div>
-					
-					<div><label>Etunimi:<input type="text" th:field="*{firstname}" class="form-control"/></label>
-					</div>
-					
-					<div><label>Sukunimi:<input type="text" th:field="*{lastname}" class="form-control"/></label>
-					</div>
-				
-					<div><label>Anna salasana:<input type="password" th:field="*{password}" class="form-control"/></label>
-					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
-					</div>
-				
-					<div>
-					<label>Anna salasana uudelleen: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
-					<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
-					</div>
-					
-					<div id="list" style="clear: both; display: block; margin-top: 20px;">
-					<label>Käyttäjärooli: </label>
-					<select th:field="*{role}">
-    					<option th:value="'user'" th:text="User"></option>
-    					<option th:value="'admin'" th:text="Admin"></option>
-					</select>
-					</div>
-					
-					<br>
-			
-					<input type="submit" class="btn btn-primary" value="Luo käyttäjätunnus"></input>
-					<a href="/login" class="btn btn-danger">Keskeytä uuden käyttäjätunnuksen luominen</a>		
-				</form>
-				
+			<div class="col">
+				<h1>Luo Yummy!-käyttäjätunnus</h1>
 			</div>
+			<div>
+				<form
+					th:object="${registernewuser}"
+					th:action="@{/saveuser}"
+					action="#"
+					method="post"
+				>
+					<div class="form-field">
+						<label for="username">Käyttäjätunnus:</label
+						><input
+							type="text"
+							name="username"
+							th:field="*{username}"
+							class="form-control"
+						/>
+						<span class="form-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+							Username Error
+						</span>
+					</div>
 
-	</div>
-	<script>
-		var dt = new Date();
-		document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-	</script>
-</body>
+					<div class="form-field">
+						<label for="firstname">Etunimi:</label
+						><input
+							type="text"
+							name="firstname"
+							th:field="*{firstname}"
+							class="form-control"
+						/>
+					</div>
 
+					<div class="form-field">
+						<label for="lastname">Sukunimi:</label
+						><input
+							type="text"
+							name="lastname"
+							th:field="*{lastname}"
+							class="form-control"
+						/>
+					</div>
+
+					<div class="form-field">
+						<label for="pw1">Anna salasana:</label
+						><input
+							type="password"
+							name="pw1"
+							th:field="*{password}"
+							class="form-control"
+						/>
+						<span class="form-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+							Password Error
+						</span>
+					</div>
+
+					<div class="form-field">
+						<label for="pw2">Anna salasana uudelleen:</label
+						><input
+							type="password"
+							name="pw2"
+							th:field="*{passwordCheck}"
+							class="form-control"
+						/>
+						<span class="form-error"
+							th:if="${#fields.hasErrors('passwordCheck')}"
+							th:errors="*{passwordCheck}"
+						>
+							Password Match Error
+						</span>
+					</div>
+
+					<div class="form-field" id="list">
+						<label>Käyttäjärooli: </label>
+						<select th:field="*{role}">
+							<option th:value="'user'" th:text="User"></option>
+							<option th:value="'admin'" th:text="Admin"></option>
+						</select>
+					</div>
+					<div class="form-buttons">
+						<input
+							type="submit"
+							class="button-okay font-default"
+							value="Luo käyttäjätunnus"
+						/>
+						<a href="/login" class="button-alert"
+							>Keskeytä uuden käyttäjätunnuksen luominen</a
+						>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script>
+			var dt = new Date();
+			document.getElementById("datetime").innerHTML =
+				("0" + dt.getDate()).slice(-2) +
+				"." +
+				("0" + (dt.getMonth() + 1)).slice(-2) +
+				"." +
+				dt.getFullYear() +
+				" " +
+				("0" + dt.getHours()).slice(-2) +
+				":" +
+				("0" + dt.getMinutes()).slice(-2);
+		</script>
+	</body>
 </html>
