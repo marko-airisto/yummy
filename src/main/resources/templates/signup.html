@@ -7,25 +7,30 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 	<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
 	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+	<link
+			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
+			rel="stylesheet"
+		/>
 </head>
 
 <body>
 
-	<div class="container">
 	
+		<header>
+			<nav>
+				<div class="logo-section">
+					<img src="/images/logo.png" />
+					<a href="">Yummy! -reseptit</a>
+				</div>
+			</nav>
+		</header>
 		<br>
 		<div align="right"><span id="datetime"></span></div>
-
-		<br><div class="col">
+		<div class="container">
+	<div class="col">
 		<h1>Luo Yummy!-käyttäjätunnus</h1>
 		</div>
-		
-			<script>
-				var dt = new Date();
-				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-			</script>
-	
-     		<div>
+		 		<div>
 		
 				<form th:object="${registernewuser}" th:action="@{/saveuser}" action="#" method="post">
 					<div><label>Käyttäjätunnus:<input type="text" th:field="*{username}" class="form-control"/></label>
@@ -64,7 +69,10 @@
 			</div>
 
 	</div>
-
+	<script>
+		var dt = new Date();
+		document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+	</script>
 </body>
 
 </html>

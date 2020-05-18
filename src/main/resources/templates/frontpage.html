@@ -1,68 +1,89 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+	<head>
+		<title>Yummy!</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+		<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
+		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
 
-<head>
-	<title>Yummy!</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
-	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
-</head>
-
-<body>
-
-	<div class="container">
-		
-		<br>
-		<div align="right"><span id="datetime"></span></div>
-		
-		<br><div class="col">
-		<h1>Tervetuloa herkuttelemaan Yummy!:n parissa!</h1>
-		</div>
-		
-			<script>
-				var dt = new Date();
-				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-			</script>
-	
-			<div class="col">
-						
-			<h4 th:inline="text">Tervetuloa, [[${#httpServletRequest.remoteUser}]]!</h4>
-			
-			<div style="padding:20px 0">
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" value="Sign Out" class="btn btn-sm btn-warning"/>
-			</form>
-			</div>
-			
-			</div>
-						
-			<br>
-			
-				<div class="panel panel-default">
-					<div class="panel-heading">Yummy! info</div>
-					
-					<div class="panel-body" style="padding-left: 5px;">
-					<p>Tekstiä palvelun tarkoituksesta!</p>
-					
-					<p>Vinkkejä Yummy!n käytöstä!</p>
-					
-					<p>Muuta tekstiä?</p>
-					</div>
+	<body>
+		<header>
+			<nav>
+				<div class="logo-section">
+					<img src="/images/logo.png" />
+					<a href="">Yummy! -reseptit</a>
 				</div>
-				
-			<br>
-		
-		<!-- <a href="/add" class="btn btn-sm btn-success" sec:authorize="hasAuthority('ADMIN')">Lisää uusi resepti</a>  -->
-		<a href="/recipes" class="btn btn-sm btn-primary">Resepteihin</a>
-		
-		<br>
-		<br>
-		<br>
-		<br>
+			</nav>
+		</header>
+		<div><span id="datetime"></span></div>
 
-	</div>
+		<div class="container">
+			<br />
+			<div class="col">
+				<h1>Tervetuloa herkuttelemaan Yummy!:n parissa!</h1>
+			</div>
 
-</body>
+			<div class="col">
+				<h4 th:inline="text">
+					Tervetuloa, [[${#httpServletRequest.remoteUser}]]!
+				</h4>
 
+				<div style="padding: 20px 0;">
+					<form th:action="@{/logout}" method="post">
+						<input
+							type="submit"
+							value="Sign Out"
+							class="btn btn-sm btn-warning"
+						/>
+					</form>
+				</div>
+			</div>
+
+			<br />
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Yummy! info</div>
+
+				<div class="panel-body" style="padding-left: 5px;">
+					<p>Tekstiä palvelun tarkoituksesta!</p>
+
+					<p>Vinkkejä Yummy!n käytöstä!</p>
+
+					<p>Muuta tekstiä?</p>
+				</div>
+			</div>
+
+			<br />
+
+			<!-- <a href="/add" class="btn btn-sm btn-success" sec:authorize="hasAuthority('ADMIN')">Lisää uusi resepti</a>  -->
+			<a href="/recipes" class="btn btn-sm btn-primary">Resepteihin</a>
+
+			<br />
+			<br />
+			<br />
+			<br />
+		</div>
+		<script>
+			var dt = new Date();
+			document.getElementById("datetime").innerHTML =
+				("0" + dt.getDate()).slice(-2) +
+				"." +
+				("0" + (dt.getMonth() + 1)).slice(-2) +
+				"." +
+				dt.getFullYear() +
+				" " +
+				("0" + dt.getHours()).slice(-2) +
+				":" +
+				("0" + dt.getMinutes()).slice(-2);
+		</script>
+	</body>
 </html>
