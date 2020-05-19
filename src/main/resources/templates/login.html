@@ -46,12 +46,31 @@
 						><input type="password" name="password" class="form-control" />
 					</div>
 					<div>
-						<input type="submit" value="Kirjaudu sisään" class="button-okay" />
+						<input
+							type="submit"
+							value="Kirjaudu sisään"
+							class="button-okay font-default"
+						/>
 					</div>
 				</form>
 				<a th:href="@{/signup}" class="button-invert">Uusi käyttäjä?</a>
 			</div>
 		</div>
+		<footer>
+			<div>
+				<p>@ 2020 Marko Airisto & Ulla Taponen</p>
+				<p>
+					Logo made by
+					<a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
+						>Good Ware</a
+					>
+					from
+					<a href="https://www.flaticon.com/" title="Flaticon"
+						>www.flaticon.com</a
+					>
+				</p>
+			</div>
+		</footer>
 		<script>
 			var dt = new Date();
 			document.getElementById("datetime").innerHTML =

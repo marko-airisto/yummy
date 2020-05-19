@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
 	<head>
 		<title>Yummy!</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
@@ -20,17 +23,20 @@
 				<div class="logo-section">
 					<img src="/images/logo.png" />
 					<a href="">Yummy! -reseptit</a>
+					<form th:action="@{/logout}" method="post" class="button-signout">
+						<input type="submit" value="Sign Out" class="" />
+					</form>
 				</div>
 			</nav>
 		</header>
 		<div><span id="datetime"></span></div>
-		
-		<div style="padding:20px 0">
+
+		<!-- <div style="padding:20px 0">
 			<form th:action="@{/logout}" method="post">
 				<input type="submit" value="Sign Out" class="btn btn-sm btn-warning" sec:authorize="isAuthenticated()"/>
 			</form>
-		</div>
-		
+		</div> -->
+
 		<div class="container">
 			<div class="search-container">
 				<form class="search" method="POST">
