@@ -56,8 +56,10 @@ INSERT INTO regimen (name) VALUES
 ('Laktoositon'),
 ('Lakto-ovo'),
 ('Maidoton'),
-('Vegaani'),
-('Viljaton');
+('Vegaaninen'),
+('Viljaton'),
+('Vähäkalorinen'),
+('Vähälaktoosinen');
 
 CREATE TABLE main (
 mid BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -66,11 +68,13 @@ ENGINE=InnoDB;
 
 INSERT INTO main (name) VALUES 
 ('Hedelmät ja marjat'),
-('Kala'),
+('Kala ja äyriäiset'),
 ('Kana'),
+('Kananmuna'),
 ('Kasvikset'),
 ('Liha'),
-('Maitotuotteet'),
+('Maitovalmisteet'),
 ('Riista'),
 ('Siipikarja'),
-('Tofu');
+('Tofu'),
+('Viljavalmisteet');

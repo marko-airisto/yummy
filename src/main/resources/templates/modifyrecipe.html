@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Yummy!</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link type="text/css" rel="stylesheet" th:href="@{/css/reset.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lato&display=swap" rel="stylesheet"	/>
+</head>
+
+<body>
+	<header>
+			<nav>
+				<div class="logo-section">
+					<img src="/images/logo.png" />
+					<a href="">Yummy! -reseptit</a>
+					<form th:action="@{/logout}" method="post" class="button-signout" sec:authorize="isAuthenticated()">
+						<input type="submit" value="Sign Out" class="" />
+					</form>
+				</div>
+			</nav>
+		</header>
+		<div><span id="datetime"></span></div>
+
+	<div class="container">
+	
+		<br>
+		<div align="right"><span id="datetime"></span></div>
+	
+		<br><div class="col">
+		<h1>Muokkaa reseptin tietoja</h1>
+		</div>
+		
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+			</script>
+		
+			<br>
+		
+			<div class="col-md-2">
+			<div class="row">
+	
+				<form th:object="${modifyRecipe}" th:action="@{/save}" action="#" method="post">
+
+					<input type="hidden" id="id" th:field="*{id}"/>
+
+					<label for="name">Reseptin nimi</label> 
+					<input type="text" id="name" th:field="${modifyRecipe.name}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="preparation">Valmistusaika</label> 
+					<input type="text" id="preparation" th:field="${modifyRecipe.preparation}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="regimen">Ruokavalio</label>
+					<select id="regimens" th:field="*{regimen}">
+						<option th:each="regimen: ${regimens}" th:value="${regimen.rid}" th:text="${regimen.name}"></option>
+    				</select>
+    				<div style="clear: both; display: block; height: 10px;"></div>
+    				
+					<label for="main">Pääraaka-aine</label>
+					<p><select id="mains" th:field="*{main}">
+						<option th:each="main: ${mains}" th:value="${main.mid}" th:text="${main.name}"></option>
+    				</select>
+    				<div style="clear: both; display: block; height: 10px;"></div>
+    				
+					<label for="ingredient01">Ainesosa 1</label> 
+					<input type="text" id="ingredient01" th:field="${modifyRecipe.ingredient01}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient02">Ainesosa 2</label> 
+					<input type="text" id="ingredient02" th:field="${modifyRecipe.ingredient02}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient03">Ainesosa 3</label> 
+					<input type="text" id="ingredient03" th:field="${modifyRecipe.ingredient03}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient04">Ainesosa 4</label> 
+					<input type="text" id="ingredient04" th:field="${modifyRecipe.ingredient04}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient05">Ainesosa 5</label> 
+					<input type="text" id="ingredient05" th:field="${modifyRecipe.ingredient05}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient06">Ainesosa 6</label> 
+					<input type="text" id="ingredient06" th:field="${modifyRecipe.ingredient06}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient07">Ainesosa 7</label> 
+					<input type="text" id="ingredient07" th:field="${modifyRecipe.ingredient07}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient08">Ainesosa 8</label> 
+					<input type="text" id="ingredient08" th:field="${modifyRecipe.ingredient08}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient09">Ainesosa 9</label> 
+					<input type="text" id="ingredient09" th:field="${modifyRecipe.ingredient09}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient10">Ainesosa 10</label> 
+					<input type="text" id="ingredient10" th:field="${modifyRecipe.ingredient10}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient11">Ainesosa 11</label> 
+					<input type="text" id="ingredient11" th:field="${modifyRecipe.ingredient11}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient12">Ainesosa 12</label> 
+					<input type="text" id="ingredient12" th:field="${modifyRecipe.ingredient12}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient13">Ainesosa 13</label> 
+					<input type="text" id="ingredient13" th:field="${modifyRecipe.ingredient13}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient14">Ainesosa 14</label> 
+					<input type="text" id="ingredient14" th:field="${modifyRecipe.ingredient14}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="ingredient15">Ainesosa 15</label> 
+					<input type="text" id="ingredient15" th:field="${modifyRecipe.ingredient15}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="instruction">Valmistusohje</label> 
+					<textarea name="instruction" rows="10" cols="30" th:field="${modifyRecipe.instruction}" /></textarea>
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="createdby">Reseptin lisännyt</label> 
+					<input type="text" id="createdby" th:field="${modifyRecipe.createdby}" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<br>
+					
+					<input type="submit" class="btn btn-sm btn-success" value="Vahvista muutokset"></input>
+					<a href="/recipes" class="btn btn-sm btn-danger">Keskeytä</a>
+		
+				</form>
+				
+			</div>
+			</div>
+
+	</div>
+
+</body>
+
+</html>

@@ -23,7 +23,7 @@
 				<div class="logo-section">
 					<img src="/images/logo.png" />
 					<a href="">Yummy! -reseptit</a>
-					<form th:action="@{/logout}" method="post" class="button-signout">
+					<form th:action="@{/logout}" method="post" class="button-signout" sec:authorize="isAuthenticated()">
 						<input type="submit" value="Sign Out" class="" />
 					</form>
 				</div>
@@ -98,7 +98,9 @@
 						<th>Ruokavalio</th>
 						<th>Pääraaka-aine</th>
 						<th>Reseptin lisännyt</th>
-						<th>Näytä reseptin tiedot</th>
+						<th>Näytä resepti</th>
+						<th sec:authorize="isAuthenticated()">Muokkaa</th>
+						<th sec:authorize="isAuthenticated()">Poista</th>
 					</tr>
 				</thead>
 
@@ -109,11 +111,13 @@
 					<td th:text="${recipe.main.name}"></td>
 					<td th:text="${recipe.createdby}"></td>
 					<td>
-						<a
-							th:href="@{/showrecipe/{id}(id=${recipe.id})}"
-							class="button-inline"
-							>Avaa</a
-						>
+						<a th:href="@{/showrecipe/{id}(id=${recipe.id})}" class="button-inline">Avaa</a>
+					</td>
+					<td sec:authorize="isAuthenticated()">
+						<a th:href="@{/modifyrecipe/{id}(id=${recipe.id})}" class="button-inline">Muokkaa</a>
+					</td>
+					<td sec:authorize="isAuthenticated()">
+						<a th:href="@{/delete/{id}(id=${recipe.id})}" class="button-inline">Poista</a>
 					</td>
 				</tr>
 			</table>
